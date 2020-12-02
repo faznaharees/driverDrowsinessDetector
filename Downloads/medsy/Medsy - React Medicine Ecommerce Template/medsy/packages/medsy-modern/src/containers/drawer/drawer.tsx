@@ -18,7 +18,7 @@ export const CartDrawer = () => {
 
   const drawerComponent = (state) => {
     if (state?.showDetails === true) {
-      return <ProductDetails />;
+      return <ProductDetails item={{name:'Component'}} />;
     }
 
     if (state?.showCart === true) {

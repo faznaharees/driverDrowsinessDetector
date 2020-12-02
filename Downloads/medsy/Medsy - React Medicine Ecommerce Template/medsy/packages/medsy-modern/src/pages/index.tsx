@@ -25,7 +25,7 @@ export default function Home({ products, categories }) {
   }, [searchTerm, category]);
 
   return (
-    <Layout>
+    <Layout data={categories} ref={elRef} >
       <Head>
         <meta
           name="viewport"
@@ -35,11 +35,11 @@ export default function Home({ products, categories }) {
         <title>Medsy</title>
       </Head>
 
-      <HeroBlock />
-      <HowItWorks />
+      {/* <HeroBlock /> 
+       <HowItWorks /> */}
       <Categories data={categories} ref={elRef} />
       <Products items={products} />
-      <CallToAction />
+      {/* <CallToAction /> */}
     </Layout>
   );
 }

@@ -36,7 +36,8 @@ export default function ProductDetails({item}) {
       });
 
   };
-
+  
+  const [features,setFeatures] = React.useState()
   return (
     <div className="flex flex-col w-full h-full">
       <div className="w-full flex justify-center relative px-30px py-20px">
@@ -74,36 +75,17 @@ export default function ProductDetails({item}) {
             <br/>
             <br/>
             <div className="flex flex-col pt-30px">
-        {/* {count > 0 ? (
-          <Counter
-            value={count}
-            className="ml-auto w-full big"
-            size="big"
-            onIncrement={() => {
-              addItem(item);
-            }}
-            onDecrement={() => removeItem(item)}
-          />
-        ) : (
-          <Button className="w-full big" onClick={addToCart}>
-            Add To Cart
-          </Button>
-        )} */}
+      
        
       </div>
-            {/* <p className="flex items-center mb-5">
-              <span className=" text-gray-500 text-11px capitalize">
-                {item.type}
+          
+            <div className="flex flex-col justify-start full mt-10 pr-30px even:pr-0">
+              <span className="text-gray-500 text-11px mb-2">Features</span>
+              <span className="font-normal text-13px text-gray-900 capitalize">
+                {item.features!==undefined && (JSON.parse(item.features)).map(feature => <li>{feature}</li>)}
+                <button onClick={()=>console.log(JSON.parse(item.features))}>Click me</button>
               </span>
-              <span className="flex bg-gray-500 w-3px h-3px rounded mx-3" />
-              <span className=" text-gray-500 text-11px">
-                {item.quantity}{' '}
-                {item.quantity > 1 ? 'pieces' : 'piece'}
-              </span>
-            </p>
-
-            
-            {item.description} */}
+            </div>
             <div className=" bottom-0 w-full flex flex-col align-baseline mb-0">
            <Button className="w-full  align-baseline big" onClick={addToCart}>
             Add To Cart
@@ -119,12 +101,7 @@ export default function ProductDetails({item}) {
               </span>
             </div>
 
-            <div className="flex flex-col justify-start full mt-10 pr-30px even:pr-0">
-              <span className="text-gray-500 text-11px mb-2">Dosages</span>
-              <span className="font-normal text-13px text-gray-900 capitalize">
-                {item.dosage}
-              </span>
-            </div>
+            
 
             <div className="flex flex-col justify-start full mt-10 pr-30px even:pr-0">
               <span className="text-gray-500 text-11px mb-2">

@@ -2,10 +2,12 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import Layout from 'containers/layout/layout';
 import TermsPageContent from 'containers/term/terms';
+import { getCategories } from 'helpers/get-categories';
+import { getProducts } from 'helpers/get-products';
 
-export default function FAQ() {
+export default function FAQ({categories,elRef}) {
   return (
-    <Layout style={{ height: 'auto' }}>
+    <Layout  data={categories} ref={elRef} >
       <Head>
         <meta
           name="viewport"
@@ -20,4 +22,16 @@ export default function FAQ() {
       </div>
     </Layout>
   );
+}
+
+export async function getServerSideProps() {
+  const products = await getProducts();
+  const categories = await getCategories();
+
+  return {
+    props: {
+      products,
+      categories,
+    },
+  };
 }

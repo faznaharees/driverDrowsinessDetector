@@ -12,6 +12,8 @@ import {
 } from 'components/utils/theme';
 import ChevronLeft from 'assets/icons/chevron-left';
 import ChevronRight from 'assets/icons/chevron-right';
+import { getProducts } from 'helpers/get-products';
+import { getCategories } from 'helpers/get-categories';
 interface Props {
   data: any;
 }
@@ -40,6 +42,7 @@ const Categories = React.forwardRef(
   ({ data }: Props, ref: React.RefObject<HTMLDivElement>) => {
     return (
       <div className="category pt-8" ref={ref}>
+       
         <Swiper
           slidesPerView={2}
           spaceBetween={10}

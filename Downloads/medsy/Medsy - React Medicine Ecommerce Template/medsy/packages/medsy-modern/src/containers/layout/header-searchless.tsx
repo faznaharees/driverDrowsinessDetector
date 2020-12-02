@@ -12,7 +12,7 @@ import React from 'react';
 interface Props {
   data:any;
 }
-const Header = React.forwardRef(
+const HeaderSearchLess = React.forwardRef(
   ({data}:Props, ref: React.RefObject<HTMLDivElement>) => {
     const router = useRouter();
     const { dispatch }: any = useContext(DrawerContext);
@@ -45,7 +45,7 @@ const Header = React.forwardRef(
     const isHome = router.pathname === '/';
   
     return (
-    <header className="flex items-center shadow-mobile text-gray-700 body-font fixed bg-white w-full h-90px z-20 lg:shadow-header pr-20px md:pr-30px lg:pr-40px">
+    <header className="flex items-center shadow-mobile text-gray-700 body-font fixed bg-white w-full h-70px z-20 lg:shadow-header pr-20px md:pr-30px lg:pr-40px">
       <button
         aria-label="Menu"
         className="menuBtn flex flex-col items-center justify-center w-50px flex-shrink-0 h-full outline-none focus:outline-none lg:w-90px"
@@ -65,16 +65,7 @@ const Header = React.forwardRef(
         </a>
       </Link>
 
-      <div className="hidden items-center text-gray-900 mr-10 flex-shrink-0 lg:flex">
-       
-       <SelectCategory data={data} ref={ref} /> 
-     </div>
-      <div className="w-full ml-10px mr-20px lg:mr-10 lg:ml-auto lg:flex lg:justify-center">
-        <Search />
-        {/* {isHome && <Search />} */}
-      </div>
-
-     
+      
 
       <button
         className="flex items-center justify-center flex-shrink-0 h-auto relative focus:outline-none"
@@ -93,4 +84,4 @@ const Header = React.forwardRef(
   );
 });
 
-export default Header;
+export default HeaderSearchLess;

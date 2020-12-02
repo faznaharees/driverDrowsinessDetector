@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import Layout from 'containers/layout/layout';
 import Accordion from 'components/accordion';
+import { getProducts } from 'helpers/get-products';
+import { getCategories } from 'helpers/get-categories';
 
 const accordionData = [
   {
@@ -30,9 +32,9 @@ const accordionData = [
   },
 ];
 
-export default function FAQ() {
+export default function FAQ({categories,elRef}) {
   return (
-    <Layout>
+    <Layout data={categories} ref={elRef} >
       <Head>
         <meta
           name="viewport"
@@ -50,4 +52,15 @@ export default function FAQ() {
       </div>
     </Layout>
   );
+}
+export async function getServerSideProps() {
+  const products = await getProducts();
+  const categories = await getCategories();
+
+  return {
+    props: {
+      products,
+      categories,
+    },
+  };
 }

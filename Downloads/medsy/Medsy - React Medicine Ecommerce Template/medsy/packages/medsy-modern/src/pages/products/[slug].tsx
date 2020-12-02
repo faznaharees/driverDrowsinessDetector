@@ -39,7 +39,7 @@ export default function Home({ products, categories }) {
     )
   }
   return (
-    <Layout>
+    <Layout data={categories} ref={elRef} >
       <Head>
         <meta
           name="viewport"

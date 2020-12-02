@@ -15,7 +15,21 @@ import {
 } from 'assets/icons/social-icons';
 
 const menus = [
-  
+  {
+    id: 1,
+    pathname: '/about',
+    title: 'About US',
+  },
+  {
+    id: 2,
+    pathname: '/about',
+    title: 'Brands',
+  },
+  {
+    id: 3,
+    pathname: '/about',
+    title: 'Products',
+  },
   {
     id: 4,
     pathname: '/faq',
