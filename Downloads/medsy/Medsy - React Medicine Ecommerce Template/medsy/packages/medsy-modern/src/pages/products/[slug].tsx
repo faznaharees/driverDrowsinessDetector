@@ -51,10 +51,9 @@ export default function Home({ products, categories }) {
         
         {objectitem
         !==undefined &&
-        <div>
           
           <ProductDetails item={objectitem}/>
-          </div>}
+          }
          
         {/* <HeroBlock /> */}
         {/* <HowItWorks />

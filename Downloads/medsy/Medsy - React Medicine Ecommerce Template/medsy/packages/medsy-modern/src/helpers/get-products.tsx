@@ -25,31 +25,22 @@ export async function getProducts() {
   const rows = await sheet.getRows(); // can pass in { limit, offset }
   const products = rows?.map(
     ({
-      id,
+     
       name,
       image,
       description,
       price,
-      features,
       category_ids,
-      accuracy,
-      ambient_temperature_limits,
-      supply_voltage_effect,
-      response_time,
-      emc_immunity_effect,
+      listofitems,
+      
     }) => ({
-      id,
+    
       name,
       image,
       description,
-      category_ids,
       price,
-      features,
-      accuracy,
-      ambient_temperature_limits,
-      supply_voltage_effect,
-      response_time,
-      emc_immunity_effect,
+      category_ids,
+      listofitems,
       
     })
   );

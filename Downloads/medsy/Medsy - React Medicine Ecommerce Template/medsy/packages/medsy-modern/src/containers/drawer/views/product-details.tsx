@@ -59,7 +59,7 @@ export default function ProductDetails({item}) {
             <img src={item.image} alt={`${item.name}-img`} />
           </div>
 
-          <div className="flex w-full relative h-360px flex-col  p-30px pt-0 pb-0">
+          <div className="flex w-full relative flex-col  p-30px pt-0 pb-0">
           <div className="flex">
 
           <h2 className="font-bold text-16px m-0">DETAILS</h2>
@@ -78,16 +78,30 @@ export default function ProductDetails({item}) {
       
        
       </div>
-          
-            <div className="flex flex-col justify-start full mt-10 pr-30px even:pr-0">
+
+           
+
+              {
+                item.listofitems!==undefined &&  
+                JSON.parse(item.listofitems).map(
+                  acc => <div className="flex flex-col justify-start full mt-4 pr-30px even:pr-0">
+                  <span className="text-gray-500 text-11px mb-2">{acc.key}</span>
+                  <span className="font-normal  text-13px text-gray-900 capitalize">
+                    { acc.value[0]==='[' ? JSON.parse(acc.value).map(acc_value => <li className="ml-5">{acc_value}</li>) : acc.value}
+                    
+                  </span>
+                </div>
+                )
+              }
+            {/* <div className="flex flex-col justify-start full mt-10 pr-30px even:pr-0">
               <span className="text-gray-500 text-11px mb-2">Features</span>
-              <span className="font-normal text-13px text-gray-900 capitalize">
+              <span className="font-normal pl-15px text-13px text-gray-900 capitalize">
                 {item.features!==undefined && (JSON.parse(item.features)).map(feature => <li>{feature}</li>)}
-                <button onClick={()=>console.log(JSON.parse(item.features))}>Click me</button>
               </span>
-            </div>
-            <div className=" bottom-0 w-full flex flex-col align-baseline mb-0">
-           <Button className="w-full  align-baseline big" onClick={addToCart}>
+            </div> */}
+
+            <div className=" bottom-0 w-full flex flex-col">
+           <Button className="w-full big" onClick={addToCart}>
             Add To Cart
           </Button>  
           </div>
